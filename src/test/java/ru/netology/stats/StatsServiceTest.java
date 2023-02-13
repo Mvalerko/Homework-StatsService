@@ -9,6 +9,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 public class StatsServiceTest {
 
+    //На каждый метод в классе StatsService делаем отдельный тест. Учитываем специфику того, с какими числами работаем
+    // с целыми или с дробными
     @Test
     public void salesAmountTest() {
         //знакомим наш тестовый метод с классом SQRService

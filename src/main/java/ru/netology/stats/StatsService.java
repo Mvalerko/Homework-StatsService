@@ -8,8 +8,9 @@ public class StatsService {
     public static void main(String[] args) {
         //System.out.println("Вот показатели наших продаж 2022 по месяцам (от января до декабря): ");
         int[] grades = {89_497, 91_574, 94_123, 87_986, 88_994, 92_527, 90_654, 102_841, 88_385, 88_562, 95_132, 102_741};
+        // А тут мы преобразуем массив целых чисел в дробные
         double[] numbersG = Arrays.stream(grades).asDoubleStream().toArray();
-
+        // Подготовим красивый паттерн для отображения чисел
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
         symbols.setGroupingSeparator(' ');
         DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
@@ -44,6 +45,7 @@ public class StatsService {
         return maxGrade;
     }
 */
+    // Считаем сумму продаж за все месяцы
     public static int salesAmount(int[] numbers) {
         int sAmount = 0;
         for (int i = 0; i < numbers.length; i++) {
@@ -51,7 +53,7 @@ public class StatsService {
         }
         return sAmount;
     }
-
+    // Считаем средний показатель продаж
     public static double midGrade(double[] numbers) {
         double grade = 0;
         for (double num : numbers) {
@@ -60,7 +62,7 @@ public class StatsService {
         return ((double) grade / numbers.length);
 
     }
-
+    // Находим последний лучший по продажам месяц
     public static int getMaxMonth(int[] numbers) {
         int maxMonth = 0;
         for (int i = numbers.length - 1; i >= 0; i--) {
@@ -70,7 +72,7 @@ public class StatsService {
         }
         return maxMonth + 1;
     }
-
+    // Находим последний худший по продажам месяц
     public static int getMinMonth(int[] numbers) {
         int minMonth = 0;
         for (int i = numbers.length - 1; i >= 0; i--) {
@@ -80,7 +82,7 @@ public class StatsService {
         }
         return minMonth + 1;
     }
-
+    // Находим количество месяцев, в которые продажи были ниже среднего уровня
     public static double getBadMonth(double[] numbers) {
         double mGrade = midGrade(numbers);
         int badMonth = 0;
@@ -91,7 +93,7 @@ public class StatsService {
         }
         return badMonth;
     }
-
+    // Находим количество месяцев, в которые продажи были выше среднего уровня
     public static double getGoodMonth(double[] numbers) {
         double mGrade = midGrade(numbers);
         int badMonth = 0;
